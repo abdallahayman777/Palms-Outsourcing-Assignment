@@ -12,8 +12,8 @@
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            line-height: 1.65;
+            color: #2d3436;
             max-width: 210mm;
             margin: 0 auto;
             padding: 20px;
@@ -21,474 +21,335 @@
         }
         
         .header {
-            text-align: center;
-            border-bottom: 3px solid #2c3e50;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+            border-bottom: 2px solid #0984e3;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
         }
         
         h1 {
-            color: #2c3e50;
-            font-size: 28px;
-            margin-bottom: 10px;
+            color: #2d3436;
+            font-size: 24px;
+            margin-bottom: 5px;
         }
         
         .subtitle {
-            color: #7f8c8d;
-            font-size: 14px;
-            font-style: italic;
+            color: #636e72;
+            font-size: 13px;
         }
         
         h2 {
-            color: #2c3e50;
-            font-size: 20px;
-            border-left: 4px solid #3498db;
-            padding-left: 15px;
-            margin-top: 30px;
-            margin-bottom: 15px;
+            color: #2d3436;
+            font-size: 18px;
+            border-bottom: 1px solid #dfe6e9;
+            padding-bottom: 8px;
+            margin-top: 25px;
+            margin-bottom: 12px;
         }
         
         h3 {
-            color: #34495e;
-            font-size: 16px;
-            margin-top: 20px;
-            margin-bottom: 10px;
+            color: #2d3436;
+            font-size: 15px;
+            margin-top: 18px;
+            margin-bottom: 8px;
         }
         
         .section {
-            margin-bottom: 25px;
-            page-break-inside: avoid;
+            margin-bottom: 20px;
         }
         
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 15px 0;
-            font-size: 13px;
-            page-break-inside: avoid;
+            margin: 12px 0;
+            font-size: 12.5px;
         }
         
         th {
-            background-color: #3498db;
-            color: white;
-            padding: 12px;
+            background-color: #74b9ff;
+            color: #2d3436;
+            padding: 10px;
             text-align: left;
             font-weight: 600;
+            border: 1px solid #a29bfe;
         }
         
         td {
-            padding: 10px 12px;
-            border-bottom: 1px solid #ddd;
+            padding: 8px 10px;
+            border: 1px solid #dfe6e9;
+            vertical-align: top;
         }
         
         tr:nth-child(even) {
             background-color: #f8f9fa;
         }
         
-        .box {
-            background-color: #ecf0f1;
-            border-left: 4px solid #3498db;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 4px;
-        }
-        
-        .highlight-box {
+        .note-box {
             background-color: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 4px;
-        }
-        
-        .success-box {
-            background-color: #d4edda;
-            border-left: 4px solid #28a745;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 4px;
+            border-left: 3px solid #ffc107;
+            padding: 12px;
+            margin: 12px 0;
+            font-size: 13px;
         }
         
         ul {
-            margin: 10px 0;
-            padding-left: 25px;
+            margin: 8px 0;
+            padding-left: 22px;
         }
         
         li {
-            margin: 8px 0;
-        }
-        
-        .metric {
-            background: white;
-            border: 2px solid #3498db;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 10px 0;
-        }
-        
-        .metric-title {
-            font-weight: bold;
-            color: #2c3e50;
-            font-size: 15px;
-            margin-bottom: 5px;
-        }
-        
-        .metric-target {
-            color: #27ae60;
-            font-weight: bold;
+            margin: 6px 0;
+            font-size: 13px;
         }
         
         code {
-            background-color: #f4f4f4;
-            padding: 2px 6px;
-            border-radius: 3px;
+            background-color: #f1f3f5;
+            padding: 2px 5px;
+            border-radius: 2px;
             font-family: 'Courier New', monospace;
-            font-size: 12px;
+            font-size: 11.5px;
         }
         
         .code-block {
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            padding: 15px;
-            border-radius: 5px;
+            background-color: #2d3436;
+            color: #dfe6e9;
+            padding: 12px;
+            border-radius: 3px;
             overflow-x: auto;
             font-family: 'Courier New', monospace;
-            font-size: 12px;
+            font-size: 11.5px;
+            margin: 12px 0;
+            line-height: 1.5;
+        }
+        
+        .flow-box {
+            background: #e3f2fd;
+            border: 1px solid #90caf9;
+            padding: 15px;
+            border-radius: 5px;
             margin: 15px 0;
-        }
-        
-        .badge {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: bold;
-            margin-right: 5px;
-        }
-        
-        .badge-automate {
-            background-color: #28a745;
-            color: white;
-        }
-        
-        .badge-manual {
-            background-color: #6c757d;
-            color: white;
-        }
-        
-        .badge-priority {
-            background-color: #dc3545;
-            color: white;
-        }
-        
-        .flow-diagram {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 10px;
-            margin: 20px 0;
             text-align: center;
         }
         
-        .flow-step {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 15px 25px;
-            margin: 10px;
-            border-radius: 8px;
-            font-weight: bold;
-            backdrop-filter: blur(10px);
-        }
-        
-        .arrow {
-            font-size: 24px;
-            margin: 0 10px;
+        .flow-text {
+            font-size: 13px;
+            color: #1565c0;
+            font-weight: 500;
         }
         
         @media print {
             body {
                 padding: 0;
             }
-            .section {
-                page-break-inside: avoid;
-            }
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>Team API Keys & Proxy Pools</h1>
-        <div class="subtitle">Test Plan & Automation Strategy</div>
+        <h1>Test Plan: Team API Keys & Proxy Pools</h1>
+        <div class="subtitle">QA approach for the new API keys feature</div>
     </div>
 
     <div class="section">
-        <h2>1. Test Plan</h2>
+        <h2>1. Test Plan (max 1 page)</h2>
         
         <h3>Core Features that Must Pass</h3>
         <table>
-            <thead>
-                <tr>
-                    <th style="width: 20%;">Feature</th>
-                    <th style="width: 35%;">What it does</th>
-                    <th style="width: 45%;">What to check</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Create a key</strong></td>
-                    <td>User types a label, selects a product (Residential, Premium, Dedicated), and picks an environment (dev/stage/prod)</td>
-                    <td>API returns 201, key is masked (only shows last 4 chars), key is stored in the DB, UI shows it instantly</td>
-                </tr>
-                <tr>
-                    <td><strong>View a key</strong></td>
-                    <td>Shows label, assigned products, environment, and rate-limit numbers</td>
-                    <td>Full secret is never shown; UI displays label & masked key</td>
-                </tr>
-                <tr>
-                    <td><strong>Edit a key</strong></td>
-                    <td>Change label, add/remove product assignments, tweak rate-limit caps</td>
-                    <td>PATCH works, DB updates, UI reflects new values right away</td>
-                </tr>
-                <tr>
-                    <td><strong>Revoke a key</strong></td>
-                    <td>Stops the key from being usable</td>
-                    <td>DELETE returns 204, subsequent calls to the proxy return 401/403 within 5 s</td>
-                </tr>
-                <tr>
-                    <td><strong>Bulk actions</strong></td>
-                    <td>Create/revoke 10k+ keys in one request</td>
-                    <td>Operation finishes in < 90s, no race conditions, UI updates for all affected keys</td>
-                </tr>
-                <tr>
-                    <td><strong>Logs</strong></td>
-                    <td>Every request made with a key is recorded (time, status, IP, country)</td>
-                    <td>Logs show correct counts, last request details; filtering by key works; no performance hit even with 150k keys</td>
-                </tr>
-                <tr>
-                    <td><strong>Environment rules</strong></td>
-                    <td>dev → low limits, no IP whitelist. stage/prod → higher limits, IP whitelist enforced</td>
-                    <td>A dev key used on prod should be rejected; IP whitelist is enforced for prod keys</td>
-                </tr>
-                <tr>
-                    <td><strong>Proxy routing</strong></td>
-                    <td>Requests are routed to the pool that the key was assigned to</td>
-                    <td>If a key has multiple assignments, the header overrides the default pool</td>
-                </tr>
-            </tbody>
+            <tr>
+                <th style="width: 18%;">Feature</th>
+                <th style="width: 38%;">What it does</th>
+                <th style="width: 44%;">What to check</th>
+            </tr>
+            <tr>
+                <td><strong>Create a key</strong></td>
+                <td>User types a label, selects a product (Residential, Premium, Dedicated), and picks an environment (dev/stage/prod)</td>
+                <td>API returns 201, key is masked (only shows last 4 chars), key is stored in the DB, UI shows it instantly</td>
+            </tr>
+            <tr>
+                <td><strong>View a key</strong></td>
+                <td>Shows label, assigned products, environment, and rate‑limit numbers</td>
+                <td>Full secret is never shown; UI displays label & masked key</td>
+            </tr>
+            <tr>
+                <td><strong>Edit a key</strong></td>
+                <td>Change label, add/remove product assignments, tweak rate‑limit caps</td>
+                <td>PATCH works, DB updates, UI reflects new values right away</td>
+            </tr>
+            <tr>
+                <td><strong>Revoke a key</strong></td>
+                <td>Stops the key from being usable</td>
+                <td>DELETE returns 204, subsequent calls to the proxy return 401/403 within 5 s</td>
+            </tr>
+            <tr>
+                <td><strong>Bulk actions</strong></td>
+                <td>Create/revoke 10k+ keys in one request</td>
+                <td>Operation finishes in < 90s, no race conditions, UI updates for all affected keys</td>
+            </tr>
+            <tr>
+                <td><strong>Logs</strong></td>
+                <td>Every request made with a key is recorded (time, status, IP, country)</td>
+                <td>Logs show correct counts, last request details; filtering by key works; no performance hit even with 150k keys</td>
+            </tr>
+            <tr>
+                <td><strong>Environment rules</strong></td>
+                <td>dev → low limits, no IP whitelist. stage/prod → higher limits, IP whitelist enforced</td>
+                <td>A dev key used on prod should be rejected; IP whitelist is enforced for prod keys</td>
+            </tr>
+            <tr>
+                <td><strong>Proxy routing</strong></td>
+                <td>Requests are routed to the pool that the key was assigned to</td>
+                <td>If a key has multiple assignments, the header overrides the default pool</td>
+            </tr>
         </table>
 
         <h3>Core Test Cases</h3>
-        
-        <div class="box">
-            <strong>UI:</strong>
-            <ul>
-                <li>Create key with label/assignment; verify instant list update, pagination/search/filtering works with 100+ keys</li>
-                <li>Bulk revoke 1k keys; confirm UI reflects changes, no UI jank on large datasets</li>
-                <li>View logs: Filter by key, verify real-time updates after simulated requests</li>
-            </ul>
-        </div>
+        <p><strong>UI:</strong></p>
+        <ul>
+            <li>Create key with label/assignment; verify instant list update, pagination/search/filtering works with 100+ keys</li>
+            <li>Bulk revoke 1k keys; confirm UI reflects changes, no UI jank on large datasets</li>
+            <li>View logs: Filter by key, verify real-time updates after simulated requests</li>
+        </ul>
 
-        <div class="box">
-            <strong>API:</strong>
-            <ul>
-                <li><code>POST /api-keys</code>: Returns 201 with masked key; assign to products/envs</li>
-                <li><code>GET /api-keys/{id}</code>: Returns details (no full key); pagination handles 150k with correct counts</li>
-                <li><code>DELETE /api-keys/{id}</code>: 204 response, subsequent gateway calls fail</li>
-                <li><code>PATCH /api-keys/{id}</code>: Update label/assignment/rate limits; validate changes propagate</li>
-            </ul>
-        </div>
+        <p><strong>API:</strong></p>
+        <ul>
+            <li><code>POST /api-keys</code>: Returns 201 with masked key; assign to products/envs</li>
+            <li><code>GET /api-keys/{id}</code>: Returns details (no full key); pagination handles 150k with correct counts</li>
+            <li><code>DELETE /api-keys/{id}</code>: 204 response, subsequent gateway calls fail</li>
+            <li><code>PATCH /api-keys/{id}</code>: Update label/assignment/rate limits; validate changes propagate</li>
+        </ul>
 
-        <div class="box">
-            <strong>Data:</strong>
-            <ul>
-                <li>DB integrity: Query backend for key count/assignments post-CRUD; ensure no orphans after revocation</li>
-                <li>Logs accuracy: Simulate 1k requests via key, verify counters/IP/country match; reset on billing cycle</li>
-                <li>Scale: Seed 150k keys, test query performance (P95 <500ms), concurrent creates (no races)</li>
-            </ul>
-        </div>
+        <p><strong>Data:</strong></p>
+        <ul>
+            <li>DB integrity: Query backend for key count/assignments post-CRUD; ensure no orphans after revocation</li>
+            <li>Logs accuracy: Simulate 1k requests via key, verify counters/IP/country match; reset on billing cycle</li>
+            <li>Scale: Seed 150k keys, test query performance (P95 <500ms), concurrent creates (no races)</li>
+        </ul>
 
         <h3>Exploratory Angles (Proxies/Rate Limits/Abuse)</h3>
-        <div class="highlight-box">
-            <strong>Proxies:</strong> Test pool routing edge cases (e.g., key assigned to multiple pools—header overrides default); geo-leakage (wrong country IP); sticky sessions for Dedicated
-            <br><br>
-            <strong>Rate Limits:</strong> Burst traffic exceeding limits (e.g., 1001 req/s on prod key → 429 with Retry-After); cross-env abuse (use dev key in prod → rejection)
-            <br><br>
-            <strong>Abuse:</strong> Brute-force key guessing (rate-limit API); concurrent revokes during active use; IP whitelist bypass attempts (spoofed IPs); high-volume logs (1M+ entries/key) for overflow/injection
-            <br><br>
-            <strong>Usability:</strong> Multi-user concurrent edits (optimistic locking); error messaging clarity on failures; accessibility (screen reader on masked keys)
+        <ul>
+            <li><strong>Proxies:</strong> Test pool routing edge cases (e.g., key assigned to multiple pools—header overrides default); geo-leakage (wrong country IP); sticky sessions for Dedicated</li>
+            <li><strong>Rate Limits:</strong> Burst traffic exceeding limits (e.g., 1001 req/s on prod key → 429 with Retry-After); cross-env abuse (use dev key in prod → rejection)</li>
+            <li><strong>Abuse:</strong> Brute-force key guessing (rate-limit API); concurrent revokes during active use; IP whitelist bypass attempts (spoofed IPs); high-volume logs (1M+ entries/key) for overflow/injection</li>
+            <li><strong>Usability:</strong> Multi-user concurrent edits (optimistic locking); error messaging clarity on failures; accessibility (screen reader on masked keys)</li>
+        </ul>
+
+        <div class="flow-box">
+            <div style="font-weight: 600; margin-bottom: 8px;">System Flow (how I understand it):</div>
+            <div class="flow-text">User Creates API Key → Assigns to Proxy Pool(s) → Key Used in Request → Gateway Routes to Pool → Proxy Request Executed → Usage Logged</div>
+            <div style="margin-top: 8px; font-size: 12px; color: #555;">Environment rules & rate limits enforced at gateway | IP whitelist checked before routing</div>
         </div>
     </div>
 
     <div class="section">
-        <h2>Bonus: System Flow</h2>
-        <div class="flow-diagram">
-            <div style="font-size: 18px; margin-bottom: 20px;">How I understand the flow: API Keys → Proxy Pools → Proxy Requests</div>
-            <div>
-                <div class="flow-step">User Creates Key</div>
-                <span class="arrow">→</span>
-                <div class="flow-step">Assigns Pool(s)</div>
-                <span class="arrow">→</span>
-                <div class="flow-step">Key Used</div>
-                <span class="arrow">→</span>
-                <div class="flow-step">Gateway Routes</div>
-                <span class="arrow">→</span>
-                <div class="flow-step">Proxy Executes</div>
-                <span class="arrow">→</span>
-                <div class="flow-step">Logged</div>
-            </div>
-            <div style="margin-top: 20px; font-size: 13px; opacity: 0.9;">
-                Environment rules & rate limits get enforced at the gateway | IP whitelist checked before routing
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>2. Automation Prioritization for Test Cases</h2>
+        <h2>2. Automation Prioritization (1 day + 2 QAs)</h2>
         
-        <div class="success-box">
-            As QA Lead, I'd prioritize automating tests that cover critical happy paths, high-risk areas (e.g., revocation, scale), and repeatable API/UI flows first, given the 1-day timeframe and team (me + 1 senior QA + 1 junior QA). This allows quick wins on core functionality while ensuring stability. Automation framework: Use <strong>Cypress</strong> for UI, Postman/Newman or Requests library for API, and SQLAlchemy/psycopg for Data (assuming Python-based). Focus on ~50% automation coverage initially (5-6 cases), leaving exploratory/manual for edges.
-            <br><br>
-            I'd own planning, code reviews, and complex/high-risk automations (e.g., scale, concurrency) to ensure quality. Delegate simpler, isolated cases to the team: Senior QA handles API integrations; Junior QA does basic UI scripts with guidance.
-        </div>
+        <p>Given the tight timeline, I'd focus on automating the critical paths first—stuff that covers the main user flows and high-risk areas like revocation and scale. With me + 1 senior QA + 1 junior QA, we can probably knock out ~50% automation coverage (5-6 cases) on day 1.</p>
+        
+        <p><strong>Framework choice:</strong> Cypress for UI (I've used it a lot and it's reliable), Postman/Newman for API, and SQLAlchemy for data checks. I'd own the complex stuff—scale tests, concurrency checks, and code reviews. Senior QA can handle API integrations, and I'll get the junior QA started on simpler UI scripts with some guidance.</p>
 
-        <h3>UI Test Cases</h3>
+        <h3>What to automate first & why</h3>
+        
         <table>
-            <thead>
-                <tr>
-                    <th style="width: 35%;">Test Case</th>
-                    <th style="width: 15%;">Automate First?</th>
-                    <th style="width: 35%;">Why</th>
-                    <th style="width: 15%;">Ownership</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr style="background-color: #d4edda;">
-                    <td>Create a Single API Key with Label and Assignment</td>
-                    <td><span class="badge badge-automate">YES</span></td>
-                    <td>High-frequency user action; ensures basic CRUD works end-to-end. Quick to script, catches UI regressions early</td>
-                    <td>Delegate to Junior QA (simple form interactions; I'd review)</td>
-                </tr>
-                <tr style="background-color: #d4edda;">
-                    <td>Bulk Create API Keys (Scale Test)</td>
-                    <td><span class="badge badge-automate">YES</span></td>
-                    <td>Addresses high-scale risk (10k+ keys); repeatable for performance baselines. Critical for enterprise users</td>
-                    <td>Own this (involves seeding data and timing assertions; complex)</td>
-                </tr>
-                <tr>
-                    <td>Bulk Revoke API Keys</td>
-                    <td><span class="badge badge-manual">NO</span></td>
-                    <td>Involves UI selections and confirmations; automate later if time, but initial runs manual to validate UX. Lower priority vs API revocation</td>
-                    <td>manual/exploratory first</td>
-                </tr>
-                <tr>
-                    <td>View and Filter Usage Logs</td>
-                    <td><span class="badge badge-manual">NO</span></td>
-                    <td>Depends on simulated data; good for manual exploratory to check real-time updates first. Automate in future sprints</td>
-                    <td>manual/exploratory</td>
-                </tr>
-            </tbody>
+            <tr>
+                <th style="width: 35%;">Test</th>
+                <th style="width: 12%;">Auto?</th>
+                <th style="width: 38%;">Reason</th>
+                <th style="width: 15%;">Who</th>
+            </tr>
+            <tr style="background-color: #d4edda;">
+                <td>UI: Create single key</td>
+                <td><strong>Yes</strong></td>
+                <td>High-frequency action, quick to script, catches regressions early</td>
+                <td>Junior (I review)</td>
+            </tr>
+            <tr style="background-color: #d4edda;">
+                <td>UI: Bulk create (10k+ keys)</td>
+                <td><strong>Yes</strong></td>
+                <td>High-scale risk, critical for enterprise users</td>
+                <td>Me (complex)</td>
+            </tr>
+            <tr>
+                <td>UI: Bulk revoke</td>
+                <td>No</td>
+                <td>Manual first to validate UX, automate later if needed</td>
+                <td>Manual</td>
+            </tr>
+            <tr>
+                <td>UI: View/filter logs</td>
+                <td>No</td>
+                <td>Good for exploratory first, automate in future sprints</td>
+                <td>Manual</td>
+            </tr>
+            <tr style="background-color: #d4edda;">
+                <td>API: POST /api-keys</td>
+                <td><strong>Yes</strong></td>
+                <td>Core creation, easy to parameterize, high ROI</td>
+                <td>Senior QA</td>
+            </tr>
+            <tr style="background-color: #d4edda;">
+                <td>API: GET /api-keys</td>
+                <td><strong>Yes</strong></td>
+                <td>Scale-critical (150k keys), verifies pagination</td>
+                <td>Me (scale setup)</td>
+            </tr>
+            <tr style="background-color: #d4edda;">
+                <td>API: PATCH /api-keys/{id}</td>
+                <td><strong>Yes</strong></td>
+                <td>Ensures updates propagate, covers security controls</td>
+                <td>Senior QA</td>
+            </tr>
+            <tr style="background-color: #d4edda;">
+                <td>API: DELETE /api-keys/{id}</td>
+                <td><strong>Yes</strong></td>
+                <td>Critical security—revocation must be immediate</td>
+                <td>Me (high risk)</td>
+            </tr>
+            <tr>
+                <td>Data: DB integrity</td>
+                <td>No</td>
+                <td>Better as manual queries first, automate for CI later</td>
+                <td>Manual</td>
+            </tr>
+            <tr>
+                <td>Data: Logs accuracy</td>
+                <td>No</td>
+                <td>Time-sensitive (billing), high effort for low initial gain</td>
+                <td>Manual</td>
+            </tr>
+            <tr>
+                <td>Data: Concurrent operations</td>
+                <td>Partial</td>
+                <td>Hard to automate reliably, use Locust for load testing</td>
+                <td>Exploratory</td>
+            </tr>
         </table>
 
-        <h3>API Test Cases</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th style="width: 35%;">Test Case</th>
-                    <th style="width: 15%;">Automate First?</th>
-                    <th style="width: 35%;">Why</th>
-                    <th style="width: 15%;">Ownership</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr style="background-color: #d4edda;">
-                    <td>POST /api-keys (Create Key)</td>
-                    <td><span class="badge badge-automate">YES</span></td>
-                    <td>Core creation flow; easy to parameterize for variations (positive/negative). High ROI for regression</td>
-                    <td>Delegate to Senior QA (API expertise; I'd define params)</td>
-                </tr>
-                <tr style="background-color: #d4edda;">
-                    <td>GET /api-keys (List with Pagination/Search)</td>
-                    <td><span class="badge badge-automate">YES</span></td>
-                    <td>Scale-critical (150k keys); verifies pagination/performance. Repeatable and data-driven</td>
-                    <td>Own this (scale setup; coordinate with DB seeding)</td>
-                </tr>
-                <tr style="background-color: #d4edda;">
-                    <td>PATCH /api-keys/{id} (Update Assignment/Env)</td>
-                    <td><span class="badge badge-automate">YES</span></td>
-                    <td>Ensures updates propagate; covers environment controls (rate limits, whitelists). Medium complexity, but key for security</td>
-                    <td>Delegate to Senior QA (builds on POST; chainable)</td>
-                </tr>
-                <tr style="background-color: #d4edda;">
-                    <td>DELETE /api-keys/{id} (Revoke Key)</td>
-                    <td><span class="badge badge-automate">YES</span></td>
-                    <td>Critical security risk (immediacy of revocation); testable with gateway mocks. Prevents active use post-delete</td>
-                    <td>Own this (high risk; verify propagation timing)</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3>Data Test Cases</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th style="width: 35%;">Test Case</th>
-                    <th style="width: 15%;">Automate First?</th>
-                    <th style="width: 35%;">Why</th>
-                    <th style="width: 15%;">Ownership</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>DB Integrity Post-CRUD Operations</td>
-                    <td><span class="badge badge-manual">NO</span></td>
-                    <td>Requires direct DB access; better as manual queries initially. Automate later for CI integration</td>
-                    <td>manual queries</td>
-                </tr>
-                <tr>
-                    <td>Logs Accuracy and Reset</td>
-                    <td><span class="badge badge-manual">NO</span></td>
-                    <td>Time-sensitive (billing cycles); simulate manually first. High effort for low initial gain</td>
-                    <td>manual/future</td>
-                </tr>
-                <tr>
-                    <td>Concurrent Operations Integrity</td>
-                    <td><span class="badge badge-manual">NO</span></td>
-                    <td>Concurrency hard to automate reliably in 1 day; use tools like Locust for load, but delegate exploratory runs</td>
-                    <td>script partial, exploratory</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div class="box">
-            <strong>Summary of First Automations (6 cases):</strong> UI1, UI2, API1, API2, API3, API4
-            <br><br>
-            <strong>Why overall:</strong> These focus on API-heavy flows (faster to automate, less flaky than UI) and cover 80% of risks (CRUD, scale, security). UI additions for user-facing confidence. In 1 day: Morning planning/setup (me), parallel scripting (delegates), afternoon runs/reviews (all). Leaves time for manual exploratory testing on proxies/abuse. If time overruns, drop UI2.
+        <div class="note-box">
+            <strong>Summary:</strong> First 6 automations are UI1, UI2, API1-4. Focus on API-heavy flows (faster, less flaky) covering ~80% of risks. Morning: planning/setup, parallel scripting during the day, afternoon: test runs & reviews. This leaves time for manual exploratory testing on proxies/abuse scenarios. If we run short on time, we'll drop UI2.
         </div>
     </div>
 
     <div class="section">
-        <h2>3. Automation Wiring into CI</h2>
+        <h2>3. CI Integration (Cypress + GitHub Actions)</h2>
         
-        <p>So for wiring up automation into CI, I've done this a ton with Cypress (love it for E2E stuff) and GitHub Actions—keeps everything simple and integrates nicely without much hassle.</p>
+        <p>I've wired up Cypress with GitHub Actions before and it's pretty straightforward. Here's how I'd set it up:</p>
 
-        <h3>Quick Folder Setup</h3>
+        <h3>Folder structure</h3>
         <div class="code-block">project-root/
-├── cypress/                    // Where all the Cypress magic happens
-│   ├── e2e/                   // Actual test files, like createKey.cy.js
-│   ├── fixtures/              // Sample data or mocks for APIs
-│   ├── support/               // Handy custom commands, e.g., for login or DB seeding
-│   └── cypress.config.js      // Setup like your base URL, env vars, and reporting
-├── .github/workflows/         // CI configs
-│   └── ci-tests.yml          // The main workflow file
-├── package.json              // All your deps, including Cypress
-└── README.md                 // Quick guide on how to run locally</div>
+├── cypress/
+│   ├── e2e/                   // test files like createKey.cy.js
+│   ├── fixtures/              // mock data
+│   ├── support/               // custom commands (login, DB seeding)
+│   └── cypress.config.js
+├── .github/workflows/
+│   └── ci-tests.yml
+├── package.json
+└── README.md</div>
 
-        <p>Super straightforward—run tests locally with <code>npx cypress run</code>, and CI picks it up from there.</p>
+        <p>Running locally is just <code>npx cypress run</code></p>
 
-        <h3>Sample CI Jobs (GitHub Actions YAML-ish)</h3>
-        <p>I'd set it to trigger on pushes or PRs, with a quick smoke run first, then deeper stuff.</p>
-
-        <strong>Smoke Job (Fast Basics):</strong>
+        <h3>CI Jobs (pseudo-YAML)</h3>
+        
+        <p><strong>Job 1: Smoke tests</strong></p>
         <div class="code-block">name: CI Tests
 on: [push, pull_request]
 
@@ -500,71 +361,60 @@ jobs:
       - setup node v20
       - npm install
       - npx cypress run --spec "cypress/e2e/smoke/*" --env baseUrl=$TEST_URL
-      - upload videos/screenshots if it fails</div>
+      - upload videos/screenshots on failure</div>
 
-        <strong>Full E2E Job (With Scale):</strong>
+        <p><strong>Job 2: Full E2E (runs only if smoke passes)</strong></p>
         <div class="code-block">  full-e2e:
-    needs: smoke                # Only if smoke passes
+    needs: smoke
     runs-on: ubuntu-latest
     steps:
       - checkout code
       - setup node
       - npm install
-      - run DB seed script for 150k keys
+      - seed DB with 150k keys
       - npx cypress run --browser chrome --parallel --record --key $CYPRESS_KEY
-      - save Mochawesome reports for later review</div>
+      - generate & upload Mochawesome reports</div>
     </div>
 
     <div class="section">
-        <h2>4. QA Metrics in the dashboard</h2>
+        <h2>4. QA Metrics</h2>
+        
+        <p><strong>1. Core Flow Pass Rate</strong> (create → assign → use → revoke)<br>
+        Target: ≥ 95%. If it drops below 90%, we don't deploy. Main user journey needs to be solid.</p>
 
-        <div class="metric">
-            <div class="metric-title">1. Core Flow Pass Rate (create → assign → use → revoke a key)</div>
-            <div class="metric-target">Target: ≥ 95%</div>
-            <div style="color: #dc3545; margin-top: 5px;">If it ever drops below 90%, we stop the train. No deploy until the main user journey is green again.</div>
-        </div>
+        <p><strong>2. Flaky Test Rate</strong><br>
+        Target: < 5%. Flaky tests kill trust fast, so anything above 5% gets quarantined and fixed or deleted immediately.</p>
 
-        <div class="metric">
-            <div class="metric-title">2. Flaky Test Rate</div>
-            <div class="metric-target">Target: < 5%</div>
-            <div style="color: #dc3545; margin-top: 5px;">If flakies creep above that, I immediately quarantine them and make the team fix or delete them. Flaky tests kill trust faster than anything.</div>
-        </div>
-
-        <div class="metric">
-            <div class="metric-title">3. Dashboard Regression Rate (new failures in UI/bulk actions/logs after a change)</div>
-            <div class="metric-target">Target: < 2%</div>
-            <div style="color: #dc3545; margin-top: 5px;">A spike here means someone probably broke something big—like pagination with 100k keys—and we fix it before merging.</div>
-        </div>
+        <p><strong>3. Dashboard Regression Rate</strong> (new failures after changes)<br>
+        Target: < 2%. A spike means something big broke (like pagination with 100k keys) and we need to fix it before merging.</p>
     </div>
 
     <div class="section">
         <h2>5. Environment Handling</h2>
 
-        <h3>Test Data Approach</h3>
+        <h3>Test Data Strategy</h3>
         <ul>
-            <li><strong>Dev:</strong> Stick to fake, scripted data—like quick-generated keys and tiny proxy pools (just 10-100 test IPs). Use automation hooks to spin it up fast without real-world mess.</li>
-            <li><strong>Stage:</strong> Get closer to reality with scrubbed prod-like data (e.g., 50k keys from snapshots or load generators). Cycle through staged proxies regularly to spot big-scale hiccups.</li>
-            <li><strong>Prod:</strong> Hands-off testing—rely on monitoring, canary releases, and flagged low-risk checks with actual keys/pools to avoid disruptions.</li>
+            <li><strong>Dev:</strong> Fake scripted data—quick-generated keys, small proxy pools (10-100 IPs). Automation hooks spin it up fast.</li>
+            <li><strong>Stage:</strong> Prod-like data (50k keys from snapshots or generators). Cycle proxies regularly to catch scale issues.</li>
+            <li><strong>Prod:</strong> Hands-off—monitoring, canary releases, low-risk flagged checks only.</li>
         </ul>
 
-        <h3>Configs & Secrets</h3>
+        <h3>Config & Secrets</h3>
         <ul>
-            <li>Keep environment tweaks (like rate limits or whitelists) in secure spots like AWS Secrets Manager. Inject them safely during builds—no hardcoding!</li>
-            <li>Secrets (DB creds, keys) get rotated every 90 days, with access logs watched closely.</li>
+            <li>Keep configs (rate limits, whitelists) in AWS Secrets Manager—inject during builds, never hardcode</li>
+            <li>Rotate secrets (DB creds, keys) every 90 days, monitor access logs</li>
         </ul>
 
-        <h3>Env-Specific Risks</h3>
-        <div class="highlight-box">
-            <strong>Dev:</strong> Too loose on controls could spill test data; lock it down with mocks and role-based access
-            <br><br>
-            <strong>Stage:</strong> Heavy loads might crash shared setups—add limits and alerts to keep things stable
-            <br><br>
-            <strong>Prod:</strong> Big worries like deploy outages or key leaks; counter with slow rollouts, real-time monitoring (e.g., Datadog), and easy rollbacks
-        </div>
+        <h3>Key Risks per Environment</h3>
+        <ul>
+            <li><strong>Dev:</strong> Too-loose controls → test data leaks. Fix: mocks + role-based access</li>
+            <li><strong>Stage:</strong> Heavy loads → crashes. Fix: add limits & alerts</li>
+            <li><strong>Prod:</strong> Outages, key leaks. Fix: gradual rollouts, monitoring (Datadog), easy rollbacks</li>
+        </ul>
     </div>
 
-    <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 2px solid #ddd; color: #7f8c8d; font-size: 12px;">
-        Test Plan Document | Team API Keys & Proxy Pools Feature
+    <div style="text-align: center; margin-top: 30px; padding-top: 15px; border-top: 1px solid #ddd; color: #636e72; font-size: 11px;">
+        Test Plan - Team API Keys & Proxy Pools
     </div>
 </body>
 </html>
