@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team API Keys & Proxy Pools - Test Plan</title>
+    <style>
+        @page {
+            margin: 2cm;
+            size: A4;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #2c3e50;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 14px;
+            font-style: italic;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 20px;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 16px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+            page-break-inside: avoid;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 13px;
+            page-break-inside: avoid;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .box {
+            background-color: #ecf0f1;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .highlight-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .success-box {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        ul {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        .metric {
+            background: white;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        
+        .metric-title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+        
+        .metric-target {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+        }
+        
+        .code-block {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            margin: 15px 0;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        .badge-automate {
+            background-color: #28a745;
+            color: white;
+        }
+        
+        .badge-manual {
+            background-color: #6c757d;
+            color: white;
+        }
+        
+        .badge-priority {
+            background-color: #dc3545;
+            color: white;
+        }
+        
+        .flow-diagram {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .flow-step {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px 25px;
+            margin: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+            backdrop-filter: blur(10px);
+        }
+        
+        .arrow {
+            font-size: 24px;
+            margin: 0 10px;
+        }
+        
+        @media print {
+            body {
+                padding: 0;
+            }
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Team API Keys & Proxy Pools</h1>
+        <div class="subtitle">Comprehensive Test Plan & Automation Strategy</div>
+    </div>
+
+    <div class="section">
+        <h2>1. Test Plan Overview</h2>
+        
+        <h3>Core Features Acceptance Criteria</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 20%;">Feature</th>
+                    <th style="width: 35%;">Functionality</th>
+                    <th style="width: 45%;">Pass Criteria</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Create Key</strong></td>
+                    <td>User types label, selects product (Residential, Premium, Dedicated), picks environment (dev/stage/prod)</td>
+                    <td>API returns 201, key is masked (only last 4 chars visible), stored in DB, UI updates instantly</td>
+                </tr>
+                <tr>
+                    <td><strong>View Key</strong></td>
+                    <td>Shows label, assigned products, environment, rate-limit numbers</td>
+                    <td>Full secret never shown; UI displays label & masked key correctly</td>
+                </tr>
+                <tr>
+                    <td><strong>Edit Key</strong></td>
+                    <td>Change label, add/remove products, adjust rate-limit caps</td>
+                    <td>PATCH works, DB updates, UI reflects changes immediately</td>
+                </tr>
+                <tr>
+                    <td><strong>Revoke Key</strong></td>
+                    <td>Stops key from being usable</td>
+                    <td>DELETE returns 204, subsequent proxy calls return 401/403 within 5s</td>
+                </tr>
+                <tr>
+                    <td><strong>Bulk Actions</strong></td>
+                    <td>Create/revoke 10k+ keys in one request</td>
+                    <td>Completes in &lt;90s, no race conditions, UI updates for all keys</td>
+                </tr>
+                <tr>
+                    <td><strong>Logs</strong></td>
+                    <td>Records every request (time, status, IP, country)</td>
+                    <td>Accurate counts, last request details, filtering works, no performance hit with 150k keys</td>
+                </tr>
+                <tr>
+                    <td><strong>Environment Rules</strong></td>
+                    <td>dev → low limits, no IP whitelist; stage/prod → higher limits, IP whitelist enforced</td>
+                    <td>Dev key rejected on prod; IP whitelist enforced for prod keys</td>
+                </tr>
+                <tr>
+                    <td><strong>Proxy Routing</strong></td>
+                    <td>Routes to assigned pool</td>
+                    <td>Multiple assignments work; header overrides default pool</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Core Test Cases</h3>
+        
+        <div class="box">
+            <strong>UI Tests:</strong>
+            <ul>
+                <li>Create key with label/assignment; verify instant list update, pagination/search/filtering with 100+ keys</li>
+                <li>Bulk revoke 1k keys; confirm UI reflects changes without jank on large datasets</li>
+                <li>View logs: Filter by key, verify real-time updates after simulated requests</li>
+            </ul>
+        </div>
+
+        <div class="box">
+            <strong>API Tests:</strong>
+            <ul>
+                <li><code>POST /api-keys</code>: Returns 201 with masked key; assign to products/environments</li>
+                <li><code>GET /api-keys/{id}</code>: Returns details (no full key); pagination handles 150k with correct counts</li>
+                <li><code>DELETE /api-keys/{id}</code>: 204 response, subsequent gateway calls fail</li>
+                <li><code>PATCH /api-keys/{id}</code>: Update label/assignment/rate limits; validate propagation</li>
+            </ul>
+        </div>
+
+        <div class="box">
+            <strong>Data Tests:</strong>
+            <ul>
+                <li>DB integrity: Query backend for key count/assignments post-CRUD; ensure no orphans after revocation</li>
+                <li>Logs accuracy: Simulate 1k requests via key, verify counters/IP/country match; reset on billing cycle</li>
+                <li>Scale: Seed 150k keys, test query performance (P95 &lt;500ms), concurrent creates (no races)</li>
+            </ul>
+        </div>
+
+        <h3>Exploratory Test Angles</h3>
+        <div class="highlight-box">
+            <strong>Proxies:</strong> Pool routing edge cases (multiple pool assignments, header overrides), geo-leakage (wrong country IP), sticky sessions for Dedicated
+            <br><br>
+            <strong>Rate Limits:</strong> Burst traffic exceeding limits (1001 req/s → 429 with Retry-After), cross-env abuse (dev key in prod → rejection)
+            <br><br>
+            <strong>Abuse Scenarios:</strong> Brute-force key guessing (rate-limit API), concurrent revokes during active use, IP whitelist bypass attempts, high-volume logs (1M+ entries/key) for overflow/injection
+            <br><br>
+            <strong>Usability:</strong> Multi-user concurrent edits (optimistic locking), error messaging clarity, accessibility (screen reader on masked keys)
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📊 Bonus: System Flow Diagram</h2>
+        <div class="flow-diagram">
+            <div style="font-size: 18px; margin-bottom: 20px;">API Keys → Proxy Pools → Proxy Requests Flow</div>
+            <div>
+                <div class="flow-step">User Creates API Key</div>
+                <span class="arrow">→</span>
+                <div class="flow-step">Assigns to Proxy Pool(s)</div>
+                <span class="arrow">→</span>
+                <div class="flow-step">Key Used in Request</div>
+                <span class="arrow">→</span>
+                <div class="flow-step">Gateway Routes to Pool</div>
+                <span class="arrow">→</span>
+                <div class="flow-step">Proxy Request Executed</div>
+                <span class="arrow">→</span>
+                <div class="flow-step">Usage Logged</div>
+            </div>
+            <div style="margin-top: 20px; font-size: 13px; opacity: 0.9;">
+                Environment rules & rate limits enforced at gateway layer | IP whitelist checked before routing
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>2. Automation Strategy (1 Day + 2 QAs)</h2>
+        
+        <div class="success-box">
+            <strong>Team Composition:</strong> QA Lead (me) + 1 Senior QA + 1 Junior QA
+            <br>
+            <strong>Goal:</strong> Automate ~50% of critical paths (5-6 cases) covering happy paths, high-risk areas, and repeatable flows
+            <br>
+            <strong>Framework:</strong> Playwright for UI, Postman/Newman for API, SQLAlchemy/psycopg for Data
+        </div>
+
+        <h3>Test Cases Prioritization</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 30%;">Test Case</th>
+                    <th style="width: 15%;">Automate First?</th>
+                    <th style="width: 35%;">Rationale</th>
+                    <th style="width: 20%;">Ownership</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background-color: #d4edda;">
+                    <td><strong>UI: Create Single API Key</strong></td>
+                    <td><span class="badge badge-automate">YES</span></td>
+                    <td>High-frequency action; ensures basic CRUD works; quick to script</td>
+                    <td>Junior QA (with review)</td>
+                </tr>
+                <tr style="background-color: #d4edda;">
+                    <td><strong>UI: Bulk Create Keys (Scale)</strong></td>
+                    <td><span class="badge badge-automate">YES</span> <span class="badge badge-priority">HIGH RISK</span></td>
+                    <td>High-scale risk (10k+ keys); critical for enterprise users</td>
+                    <td>QA Lead (complex)</td>
+                </tr>
+                <tr>
+                    <td><strong>UI: Bulk Revoke Keys</strong></td>
+                    <td><span class="badge badge-manual">MANUAL</span></td>
+                    <td>UX validation needed first; automate later if time permits</td>
+                    <td>Manual/Exploratory</td>
+                </tr>
+                <tr>
+                    <td><strong>UI: View and Filter Logs</strong></td>
+                    <td><span class="badge badge-manual">MANUAL</span></td>
+                    <td>Depends on simulated data; good for exploratory first</td>
+                    <td>Manual/Future Sprint</td>
+                </tr>
+                <tr style="background-color: #d4edda;">
+                    <td><strong>API: POST /api-keys</strong></td>
+                    <td><span class="badge badge-automate">YES</span></td>
+                    <td>Core creation flow; easy to parameterize; high ROI</td>
+                    <td>Senior QA</td>
+                </tr>
+                <tr style="background-color: #d4edda;">
+                    <td><strong>API: GET /api-keys</strong></td>
+                    <td><span class="badge badge-automate">YES</span> <span class="badge badge-priority">SCALE</span></td>
+                    <td>Scale-critical (150k keys); verifies pagination/performance</td>
+                    <td>QA Lead</td>
+                </tr>
+                <tr style="background-color: #d4edda;">
+                    <td><strong>API: PATCH /api-keys/{id}</strong></td>
+                    <td><span class="badge badge-automate">YES</span></td>
+                    <td>Ensures updates propagate; covers security controls</td>
+                    <td>Senior QA</td>
+                </tr>
+                <tr style="background-color: #d4edda;">
+                    <td><strong>API: DELETE /api-keys/{id}</strong></td>
+                    <td><span class="badge badge-automate">YES</span> <span class="badge badge-priority">SECURITY</span></td>
+                    <td>Critical security risk; testable with mocks; high priority</td>
+                    <td>QA Lead</td>
+                </tr>
+                <tr>
+                    <td><strong>Data: DB Integrity</strong></td>
+                    <td><span class="badge badge-manual">MANUAL</span></td>
+                    <td>Requires direct DB access; automate later for CI</td>
+                    <td>Manual Queries</td>
+                </tr>
+                <tr>
+                    <td><strong>Data: Logs Accuracy</strong></td>
+                    <td><span class="badge badge-manual">MANUAL</span></td>
+                    <td>Time-sensitive (billing cycles); high effort for low initial gain</td>
+                    <td>Manual/Future</td>
+                </tr>
+                <tr>
+                    <td><strong>Data: Concurrent Operations</strong></td>
+                    <td><span class="badge badge-manual">PARTIAL</span></td>
+                    <td>Hard to automate reliably; use Locust for load testing</td>
+                    <td>Exploratory</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="box">
+            <strong>First 6 Automations (Day 1):</strong> UI1, UI2, API1, API2, API3, API4
+            <br><br>
+            <strong>Why:</strong> API-heavy flows are faster to automate and less flaky. They cover 80% of risks (CRUD, scale, security). UI additions provide user-facing confidence.
+            <br><br>
+            <strong>Timeline:</strong> Morning (planning/setup), Parallel scripting, Afternoon (runs/reviews)
+            <br><br>
+            <strong>Fallback:</strong> If time overruns, drop UI2 (bulk create)
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>3. CI/CD Integration with Cypress & GitHub Actions</h2>
+        
+        <h3>Folder Structure</h3>
+        <div class="code-block">project-root/
+├── cypress/                    # Cypress test suite
+│   ├── e2e/                   # Test files (createKey.cy.js)
+│   ├── fixtures/              # Mock data & API responses
+│   ├── support/               # Custom commands (login, DB seeding)
+│   └── cypress.config.js      # Config (base URL, env vars, reporting)
+├── .github/workflows/         # CI configuration
+│   └── ci-tests.yml          # Main workflow file
+├── package.json              # Dependencies (Cypress, etc.)
+└── README.md                 # Local setup guide</div>
+
+        <div class="box">
+            <strong>Local Execution:</strong> <code>npx cypress run</code>
+            <br>
+            <strong>CI Trigger:</strong> Runs on push/PR
+        </div>
+
+        <h3>CI Job Configuration (GitHub Actions)</h3>
+
+        <strong>Job 1: Smoke Tests (Fast Basics)</strong>
+        <div class="code-block">name: CI Tests
+on: [push, pull_request]
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js v20
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Run smoke tests
+        run: npx cypress run --spec "cypress/e2e/smoke/*" --env baseUrl=$TEST_URL
+      
+      - name: Upload artifacts on failure
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-videos-screenshots
+          path: |
+            cypress/videos
+            cypress/screenshots</div>
+
+        <strong>Job 2: Full E2E Tests (With Scale)</strong>
+        <div class="code-block">  full-e2e:
+    needs: smoke    # Only runs if smoke passes
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Seed database (150k keys)
+        run: npm run db:seed
+      
+      - name: Run full E2E suite
+        run: |
+          npx cypress run \
+            --browser chrome \
+            --parallel \
+            --record \
+            --key ${{ secrets.CYPRESS_KEY }}
+      
+      - name: Generate Mochawesome reports
+        if: always()
+        run: npm run report:generate
+      
+      - name: Upload test reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-reports
+          path: cypress/reports</div>
+    </div>
+
+    <div class="section">
+        <h2>4. QA Metrics Dashboard</h2>
+
+        <div class="metric">
+            <div class="metric-title">1. Core Flow Pass Rate</div>
+            <div>Tracks: Create → Assign → Use → Revoke key journey</div>
+            <div class="metric-target">Target: ≥ 95%</div>
+            <div style="color: #dc3545; margin-top: 5px;"><strong>Action:</strong> If drops below 90%, halt deployments until green</div>
+        </div>
+
+        <div class="metric">
+            <div class="metric-title">2. Flaky Test Rate</div>
+            <div>Tracks: Tests that intermittently fail without code changes</div>
+            <div class="metric-target">Target: &lt; 5%</div>
+            <div style="color: #dc3545; margin-top: 5px;"><strong>Action:</strong> Quarantine flaky tests immediately; fix or delete</div>
+        </div>
+
+        <div class="metric">
+            <div class="metric-title">3. Dashboard Regression Rate</div>
+            <div>Tracks: New failures in UI/bulk actions/logs after changes</div>
+            <div class="metric-target">Target: &lt; 2%</div>
+            <div style="color: #dc3545; margin-top: 5px;"><strong>Action:</strong> Spike indicates major breakage (e.g., pagination with 100k keys); fix before merge</div>
+        </div>
+
+        <div class="highlight-box">
+            <strong>Decision Impact:</strong> These metrics directly influence deployment gates, test suite health, and resource allocation for fixing stability issues versus new feature testing.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>5. Environment Strategy (Dev/Stage/Prod)</h2>
+
+        <h3>Test Data Approach</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Environment</th>
+                    <th>Strategy</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Dev</strong></td>
+                    <td>Fake, scripted data: quick-generated keys, small proxy pools (10-100 test IPs). Use automation hooks for fast setup without real-world complexity.</td>
+                </tr>
+                <tr>
+                    <td><strong>Stage</strong></td>
+                    <td>Prod-like data: scrubbed snapshots or load-generated data (50k keys). Cycle staged proxies regularly to catch scale issues.</td>
+                </tr>
+                <tr>
+                    <td><strong>Prod</strong></td>
+                    <td>Hands-off testing: rely on monitoring, canary releases, flagged low-risk checks with actual keys/pools. Avoid disruptions.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Configuration & Secrets Management</h3>
+        <div class="box">
+            <strong>Environment Configs:</strong> Store rate limits, whitelists in AWS Secrets Manager
+            <br>
+            <strong>Injection:</strong> Secure build-time injection; no hardcoding
+            <br>
+            <strong>Secrets Rotation:</strong> DB credentials and API keys rotated every 90 days
+            <br>
+            <strong>Monitoring:</strong> Access logs watched closely for anomalies
+        </div>
+
+        <h3>Environment-Specific Risks</h3>
+        <div class="highlight-box">
+            <strong>Dev Risks:</strong> Too-loose controls could leak test data
+            <br><strong>Mitigation:</strong> Lock down with mocks and role-based access
+            <br><br>
+            <strong>Stage Risks:</strong> Heavy loads might crash shared infrastructure
+            <br><strong>Mitigation:</strong> Add resource limits and monitoring alerts
+            <br><br>
+            <strong>Prod Risks:</strong> Deploy outages, key leaks, user impact
+            <br><strong>Mitigation:</strong> Gradual rollouts, real-time monitoring (Datadog), easy rollback mechanisms
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 2px solid #ddd; color: #7f8c8d; font-size: 12px;">
+        Test Plan Document | Team API Keys & Proxy Pools Feature | QA Lead Assessment
+    </div>
+</body>
+</html>
