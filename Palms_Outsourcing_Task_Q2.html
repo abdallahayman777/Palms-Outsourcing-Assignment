@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bug Triage & Workflow</title>
+    <style>
+        @page {
+            margin: 2cm;
+            size: A4;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.65;
+            color: #2d3436;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        
+        .header {
+            border-bottom: 2px solid #0984e3;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        
+        h1 {
+            color: #2d3436;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            color: #636e72;
+            font-size: 13px;
+        }
+        
+        h2 {
+            color: #2d3436;
+            font-size: 18px;
+            border-bottom: 1px solid #dfe6e9;
+            padding-bottom: 8px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+        
+        h3 {
+            color: #2d3436;
+            font-size: 15px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+        
+        .section {
+            margin-bottom: 20px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            font-size: 12.5px;
+        }
+        
+        th {
+            background-color: #74b9ff;
+            color: #2d3436;
+            padding: 10px;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid #a29bfe;
+        }
+        
+        td {
+            padding: 8px 10px;
+            border: 1px solid #dfe6e9;
+            vertical-align: top;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .p0-row {
+            background-color: #ffe0e0 !important;
+        }
+        
+        .p1-row {
+            background-color: #fff4e0 !important;
+        }
+        
+        .p3-row {
+            background-color: #f0f0f0 !important;
+        }
+        
+        .note-box {
+            background-color: #fff3cd;
+            border-left: 3px solid #ffc107;
+            padding: 12px;
+            margin: 12px 0;
+            font-size: 13px;
+        }
+        
+        .bug-ticket {
+            background-color: #f8f9fa;
+            border: 1px solid #dfe6e9;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 3px;
+        }
+        
+        .field-label {
+            font-weight: 600;
+            color: #2d3436;
+            margin-top: 10px;
+            margin-bottom: 3px;
+        }
+        
+        ul {
+            margin: 8px 0;
+            padding-left: 22px;
+        }
+        
+        li {
+            margin: 6px 0;
+            font-size: 13px;
+        }
+        
+        code {
+            background-color: #f1f3f5;
+            padding: 2px 5px;
+            border-radius: 2px;
+            font-family: 'Courier New', monospace;
+            font-size: 11.5px;
+        }
+        
+        .code-block {
+            background-color: #2d3436;
+            color: #dfe6e9;
+            padding: 12px;
+            border-radius: 3px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 11.5px;
+            margin: 12px 0;
+            line-height: 1.5;
+        }
+        
+        @media print {
+            body {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Bug Triage & Workflow</h1>
+        <div class="subtitle">Post-release issues for Team API Keys & Proxy Pools</div>
+    </div>
+
+    <div class="section">
+        <h2>1. Issue Prioritization</h2>
+        
+        <table>
+            <tr>
+                <th style="width: 8%;">#</th>
+                <th style="width: 35%;">Issue</th>
+                <th style="width: 10%;">Priority</th>
+                <th style="width: 47%;">Why it matters</th>
+            </tr>
+            <tr class="p0-row">
+                <td>1</td>
+                <td>Dashboard never loads for accounts with 10k+ keys</td>
+                <td><strong>P0</strong></td>
+                <td>Enterprise customers literally can't manage their keys—scrapers are running blind. High churn risk if not fixed fast.</td>
+            </tr>
+            <tr class="p0-row">
+                <td>2</td>
+                <td>Activity log stays blank after revoking a key</td>
+                <td><strong>P0</strong></td>
+                <td>No visibility into revocation means security teams can't verify the key is actually dead. Compliance nightmare.</td>
+            </tr>
+            <tr class="p0-row">
+                <td>4</td>
+                <td>Revoked keys still work from some countries (Residential)</td>
+                <td><strong>P0</strong></td>
+                <td>Worst one here—customers think keys are revoked but they're still active in certain regions. Major trust issue + abuse risk.</td>
+            </tr>
+            <tr class="p1-row">
+                <td>5</td>
+                <td>E2E tests timing out randomly in CI</td>
+                <td><strong>P1</strong></td>
+                <td>Slowing down our ability to ship fixes confidently. Needs attention before it blocks the next hotfix.</td>
+            </tr>
+            <tr class="p3-row">
+                <td>3</td>
+                <td>Button says "Create new keyy" (typo)</td>
+                <td><strong>P3</strong></td>
+                <td>Embarrassing but harmless—doesn't block actual work. Can fix when we're touching that section anyway.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>2. Sample Bug Ticket</h2>
+        
+        <div class="bug-ticket">
+            <h3 style="margin-top: 0; color: #d63031;">Revoked API keys still functional on Residential proxies from certain geos</h3>
+            
+            <div class="field-label">Severity:</div>
+            <div>Critical</div>
+            
+            <div class="field-label">Priority:</div>
+            <div>P0</div>
+            
+            <div class="field-label">Labels:</div>
+            <div>security, customer-facing, regression, residential-proxies</div>
+            
+            <div class="field-label">Customer Impact:</div>
+            <div>Paying customers can't reliably revoke keys. Traffic continues flowing from specific countries even after revocation, creating potential for account abuse, data leaks, billing overages, and loss of trust in our security controls.</div>
+            
+            <div class="field-label">Environment:</div>
+            <div>Production – Residential Proxies endpoint (residential.proxy.com). Confirmed from German and Brazilian IPs, possibly others.</div>
+            
+            <div class="field-label">Affected Version:</div>
+            <div>v1.2.0 (Team API Keys & Proxy Pools release)</div>
+            
+            <div class="field-label">Steps to Reproduce:</div>
+            <ol style="margin-left: 20px; font-size: 13px;">
+                <li>Login to paid account with Residential access</li>
+                <li>Create new API key via Dashboard → API Keys</li>
+                <li>Send test request through key (works fine)</li>
+                <li>Revoke the key in dashboard</li>
+                <li>Retry same request from German or Brazilian IP (via VPN or actual exit node)</li>
+            </ol>
+            
+            <div class="field-label">Expected:</div>
+            <div>All requests with revoked key should get 401 Unauthorized regardless of country.</div>
+            
+            <div class="field-label">Actual:</div>
+            <div>Requests from Germany, Brazil (and possibly other non-US regions) still get 200 OK with full proxy functionality. US IPs correctly blocked.</div>
+            
+            <div class="field-label">Sample API Call (should fail but doesn't):</div>
+            <div class="code-block">curl -v https://ipinfo.io/json \
+  -x http://residential.proxy.com:8080 \
+  -H "Authorization: Bearer sk_live_revoked_9x8y7z6w5v4u3t2s1r" \
+  -H "Proxy-Country: DE"</div>
+            
+            <div class="field-label">Attachments:</div>
+            <ul style="margin-left: 20px;">
+                <li>revoked_key_dashboard.png – screenshot showing key status = Revoked</li>
+                <li>curl_success_after_revoke.txt – verbose output showing successful request after revoke</li>
+                <li>proxy_node_eu.log – EU region logs missing revocation entry for this key</li>
+                <li>customer_example_redacted.txt – customer's success response 8s after revoke</li>
+            </ul>
+            
+            <div class="field-label">Notes:</div>
+            <ul style="margin-left: 20px;">
+                <li>100% repro rate from affected geos within 10s of revocation</li>
+                <li>Probably revocation not propagating to all residential node regions, or geo-routing bypasses auth layer</li>
+                <li>Seems related to Bug #2 (missing activity log entries)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>3. Bug Workflow: Support → QA → Dev → Release</h2>
+        
+        <table>
+            <tr>
+                <th style="width: 8%;">Step</th>
+                <th style="width: 12%;">Owner</th>
+                <th style="width: 40%;">What Happens</th>
+                <th style="width: 20%;">When</th>
+                <th style="width: 20%;">Who's Notified</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Support</td>
+                <td>Customer reports issue → Support creates ticket using template (repro steps, impact, logs) → posts link in #qa-triage Slack</td>
+                <td>Same day, ideally under 2hrs</td>
+                <td>QA Lead (ping)</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>QA Lead</td>
+                <td>Try to reproduce at same scale → record Loom walkthrough → assign priority (P0/P1/P2) → add hypothesis to ticket</td>
+                <td>Within 4 hours</td>
+                <td>Support (auto-watches)</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>QA → Dev</td>
+                <td>P0/P1: immediately tag @dev-lead + on-call engineer, move to "Ready". P2: add to next sprint</td>
+                <td>Instant for P0/P1</td>
+                <td>Dev lead + on-call</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Dev</td>
+                <td>Pick up ticket (with Loom + clear repro) → implement fix → open PR</td>
+                <td>Same or next day</td>
+                <td>QA (PR reviewer)</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>QA</td>
+                <td>Test fix in staging at real scale → run quick regression suite → approve or send back</td>
+                <td>Before merge</td>
+                <td>Dev (if rejected)</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Release</td>
+                <td>P0/P1 → immediate hotfix (with canary if needed). P2 → next regular deploy</td>
+                <td>ASAP for hotfix</td>
+                <td>—</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>QA</td>
+                <td>Verify in prod → comment on ticket "@support fixed in prod, have customer hard-refresh"</td>
+                <td>Right after deploy</td>
+                <td>Support + customer</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>QA</td>
+                <td>Weekly summary to Founder/Product: customer-facing bugs only, priorities, patterns (especially AI-related issues)</td>
+                <td>Every Friday</td>
+                <td>Founder + Product</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>4. AI-Assisted Code Issues</h2>
+        
+        <p>AI tools are great for speed but they default to the "happy path" examples from their training data. They rarely think about edge cases like handling 10k rows or distributed systems across 50 countries. Here's what probably went wrong:</p>
+
+        <p><strong>Issue #1: Dashboard hangs with 10k+ keys</strong><br>
+        Dev probably asked AI for "list with pagination" and got basic <code>SELECT * WHERE team_id = ?</code> with client-side pagination or no limits. Works fine with 50 test keys, completely dies with real customer data. AI just doesn't consider scale unless you explicitly tell it to.</p>
+
+        <p><strong>Issue #4: Revoked keys work in some countries</strong><br>
+        AI generated clean <code>UPDATE revoked = true</code> but forgot about invalidating distributed edge caches. Most examples online are single-server setups, so cache invalidation across regions just doesn't show up in typical prompts.</p>
+
+        <p><strong>Issue #5: Flaky test timeouts</strong><br>
+        E2E tests probably copied some example with <code>timeout=15s</code>. Nobody told the AI that revocation now triggers async jobs that take 10-20s under load. Magic numbers without context = flaky tests.</p>
+
+        <p><strong>Issue #3: "keyy" typo</strong><br>
+        Classic hallucination. AI was generating UI components and just made up the button text. Happens when prompts aren't specific about exact copy.</p>
+
+        <h3>Prevention Strategy</h3>
+        
+        <p>I'm not banning AI—just making careless usage painful so people get better at it:</p>
+
+        <p><strong>1. Mandatory AI disclosure on PRs</strong><br>
+        Every PR using AI needs an "AI-Generated" label plus the actual prompt pasted in comments. No label = instant reject. This forces better prompts ("handle 20k rows with cursor pagination, invalidate edge caches") instead of vague requests. Takes 5 seconds to check, prevents days of debugging.</p>
+
+        <p><strong>2. Standard checklist for AI-heavy PRs</strong><br>
+        I comment the same 4 questions on every AI PR:</p>
+        <ul>
+            <li>Does this handle >1k rows or multiple regions?</li>
+            <li>Did you explicitly ask for pagination/cache invalidation in the prompt?</li>
+            <li>Did you test on a real-scale account?</li>
+            <li>Any hardcoded timeouts?</li>
+        </ul>
+        <p>One "no" = reject with link to our large-account test dataset. Public rejections make people fix their habits fast.</p>
+
+        <p><strong>3. Nightly CI with 15k-key test account</strong><br>
+        Costs almost nothing, catches "works on my machine" issues before they hit customers. Fails loudly when someone sneaks in unscalable code.</p>
+
+        <p><strong>4. Bug retros track AI contribution</strong><br>
+        Every customer bug gets tagged "AI-related: Yes/No" with a visible scoreboard. Nobody wants their name next to multiple P0s caused by lazy prompts.</p>
+
+        <div class="note-box">
+            <strong>End result:</strong> Still shipping fast with AI, but the scale-related disasters drop to near zero. Team learns to write better prompts in about a week, and I barely have to intervene after the first few PR rejections.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>5. Hidden Impact: Bug #1 Cascade</h2>
+        
+        <p>The dashboard hang (Bug #1) is actually way worse than it looks on the surface. Here's what's really happening:</p>
+
+        <p>That unpaginated query is doing a full table scan and holding DB connections open for 10-20 seconds per request. When big customers leave the dashboard tab open (which they do), those connections never close. The shared connection pool gets drained.</p>
+
+        <p><strong>What breaks as a result:</strong></p>
+        <ul>
+            <li>Proxy auth starts timing out → customers see random 502/503 errors</li>
+            <li>New key creation fails intermittently</li>
+            <li>Activity logs get delayed or dropped entirely → makes Bug #2 and #4 way harder to debug because we're missing audit trail</li>
+        </ul>
+
+        <p>So we end up spending weeks chasing "intermittent proxy issues" and "missing logs" when the actual root cause is just people trying to view their key list. I've seen this pattern before—similar unpaginated admin endpoints ate 40-60% of our total DB capacity in a previous role.</p>
+
+        <p>Fix the pagination, and suddenly all these "unrelated" issues disappear.</p>
+
+        <div class="note-box">
+            <strong>Lesson:</strong> Performance bugs that only show up at scale aren't just UI problems—they're infrastructure threats that cascade into other systems. Always test with real customer data sizes.
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px; padding-top: 15px; border-top: 1px solid #ddd; color: #636e72; font-size: 11px;">
+        Bug Triage & Workflow Document
+    </div>
+</body>
+</html>
